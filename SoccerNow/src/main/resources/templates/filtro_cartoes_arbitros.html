@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Filtrar por Nº de Cartões Mostrados - SoccerNow</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+
+    <style>
+        body {
+            margin-top: 5vh;
+        }
+        h2, h3 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 500px;
+            max-width: 90%;
+            margin-bottom: 1rem;
+        }
+        input[type="number"] {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            width: 120px;
+            align-self: center;
+            padding: 0.5rem 1rem;
+        }
+        table {
+            margin: 0 auto;
+            width: 90%;
+            border-collapse: separate;
+            border-spacing: 0 1rem;
+            table-layout: fixed;
+        }
+        th, td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 0.75rem;
+            word-wrap: break-word;
+        }
+        p.no-results {
+            text-align: center;
+            color: gray;
+        }
+        .back-top-left {
+            position: absolute;
+            top: 2rem;      
+            left: 2rem;     
+        }
+
+        .back-top-left button {
+            width: auto !important;
+            height: 100px;
+            font-size: 1.1rem;
+            padding: 1.0rem 2.0rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-top-left">
+        <form th:action="@{/filtraarbitros}" method="get">
+            <button type="submit" class="secondary"><span>Voltar</span></button>
+        </form>
+    </div>
+    <div class="container">
+
+        <h2>Filtrar por Nº de Cartões Mostrados</h2>
+
+        <form th:action="@{/filtraarbitroscartoes}" method="get">
+            <div class="input-group">
+                <label for="cartoes">Número de Cartões Mostrados:</label>
+                <input type="number" id="cartoes" name="numCartoes" />
+            </div>
+            <button type="submit">Filtrar</button>
+        </form>
+
+        <section th:if="${arbitros != null}">
+            <h3 th:if="${!arbitros.isEmpty()}">Resultados:</h3>
+            <table th:if="${!arbitros.isEmpty()}">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Tem Certificado</th>
+                        <th>Nº Jogos</th>
+                        <th>Nº Cartões Mostrados</th>
+                        <th>Anos de Experiência</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="a : ${arbitros}">
+                        <td th:text="${a.nome}">Nome</td>
+                        <td th:text="${a.email}">email@example.com</td>
+                        <td th:text="${a.temCertificado}">true</td>
+                        <td th:text="${a.numeroJogos}">0</td>
+                        <td th:text="${a.numeroCartoesMostrados}">0</td>
+                        <td th:text="${a.anosDeExperiencia}">0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p th:if="${arbitros.isEmpty()}" class="no-results">Nenhum resultado encontrado.</p>
+        </section>
+
+
+    </div>
+</body>
+</html>

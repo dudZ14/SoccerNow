@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/23.0.1"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="pt.ul.fc.di.css.javafxexample.controller.AddJogoController"
+           prefHeight="500.0" prefWidth="420.0">
+
+    <children>
+        <VBox spacing="10" alignment="CENTER" VBox.vgrow="ALWAYS">
+            <children>
+                <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 5 10;">
+                    <children>
+                        <Label text="Voltar" onMouseClicked="#back" styleClass="menu-label"/>
+                    </children>
+                </HBox>
+
+                <SplitPane dividerPositions="0.5" prefHeight="380.0" maxHeight="Infinity" prefWidth="400.0" VBox.vgrow="ALWAYS">
+                    <items>
+                        <!-- Lado esquerdo -->
+                        <VBox spacing="10" alignment="TOP_LEFT" prefWidth="250.0" style="-fx-padding: 10;" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label text="Local do Jogo:" />
+                                <TextField fx:id="fieldLocal" />
+
+                                <Label text="Data e Hora Início:" />
+                                <DatePicker fx:id="pickerDataInicio" />
+                                <TextField fx:id="fieldHoraInicio" promptText="HH:mm" />
+
+                                <Label text="Data e Hora Fim:" />
+                                <DatePicker fx:id="pickerDataFim" />
+                                <TextField fx:id="fieldHoraFim" promptText="HH:mm" />
+
+                                <Label text="Equipa Casa:" />
+                                <ComboBox fx:id="comboEquipaCasa" />
+
+                                <Label text="Equipa Visitante:" />
+                                <ComboBox fx:id="comboEquipaVisitante" />
+
+                                <Label text="Árbitro Principal:" />
+                                <ComboBox fx:id="comboArbitroPrincipal" />
+                            </children>
+                        </VBox>
+
+                        <!-- Lado direito -->
+                        <VBox spacing="10" alignment="TOP_LEFT" prefHeight="150.0" style="-fx-padding: 10;" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label text="Jogadores da Equipa Casa:" />
+                                <VBox fx:id="boxJogadoresCasa" spacing="5"/>
+
+                                <Label text="Jogadores da Equipa Visitante:" />
+                                <VBox fx:id="boxJogadoresVisitante" spacing="5"/>
+
+                                <Label fx:id="fieldJogadoresFora" text="Árbitros Assistentes:" />
+                                <ListView fx:id="listArbitrosAssistentes"
+                                        prefHeight="80.0"
+                                        maxHeight="80"
+                                        VBox.vgrow="ALWAYS"/>
+
+                                <Button fx:id="btnAdd" onAction="#addJogo" text="Adicionar Jogo" />
+
+                            </children>
+                        </VBox>
+                    </items>
+                </SplitPane>
+
+                <!-- Botão abaixo da SplitPane -->
+            </children>
+        </VBox>
+    </children>
+</StackPane>
+

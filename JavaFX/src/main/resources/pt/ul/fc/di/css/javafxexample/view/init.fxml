@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pt.ul.fc.di.css.javafxexample.controller.InitController"
+      prefWidth="600" prefHeight="800" spacing="20" alignment="TOP_CENTER">
+
+  <children>
+
+    <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 5 10;">
+      <children>
+        <Label text="Menu" onMouseClicked="#menu" styleClass="menu-label"/>
+        <Label text="Árbitros" onMouseClicked="#arbitros" styleClass="menu-label"/>
+        <Label text="Jogadores" onMouseClicked="#jogadores" styleClass="menu-label"/>
+        <Label text="Equipas" onMouseClicked="#equipas" styleClass="menu-label"/>
+        <Label text="Jogos" onMouseClicked="#jogos" styleClass="menu-label"/>
+        <Label text="Campeonatos" onMouseClicked="#campeonatos" styleClass="menu-label"/>
+        <Label text="Sair" onMouseClicked="#quit" styleClass="menu-label"/>
+      </children>
+    </HBox>
+
+    <Region /> 
+
+    <Label text="Bem-vindo ao SoccerNow!" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+    <Region /> 
+
+    <VBox prefHeight="200" alignment="CENTER" spacing="10">
+      <Region prefHeight="30" /> 
+      <HBox alignment="CENTER" spacing="10">
+        <children>
+          <Button onMouseClicked="#arbitros" prefHeight="51.0" prefWidth="110.0" text="Árbitros" />
+          <Button onMouseClicked="#jogadores" prefHeight="51.0" prefWidth="110.0" text="Jogadores" />
+          <Button onMouseClicked="#equipas" prefHeight="51.0" prefWidth="110.0" text="Equipas" />
+          <Button onMouseClicked="#jogos" prefHeight="51.0" prefWidth="110.0" text="Jogos" />
+          <Button onMouseClicked="#campeonatos" prefHeight="51.0" prefWidth="130.0" text="Campeonatos" />
+        </children>
+      </HBox>
+      <Region VBox.vgrow="ALWAYS" /> 
+    </VBox>
+
+    <Region /> 
+
+  </children>
+</VBox>

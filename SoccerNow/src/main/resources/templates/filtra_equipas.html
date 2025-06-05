@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Filtrar Equipas - SoccerNow</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 2rem;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 10.5rem;
+            text-align: center;
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        form {
+            flex: 0 0 180px;
+        }
+        form button {
+            width: 100%;
+            height: 120px;
+            text-align: center;
+        }
+        button span {
+            display: block;
+            line-height: 1.2;
+        }
+        .back-top-left {
+            position: absolute;
+            top: 2rem;      /* Distância do topo */
+            left: 2rem;     /* Distância da esquerda */
+        }
+
+        .back-top-left button {
+            width: auto !important;
+            height: 100px;
+            font-size: 1.1rem;
+            padding: 1.0rem 2.0rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-top-left">
+        <form th:action="@{/layout}" method="get">
+            <button type="submit" class="secondary"><span>Voltar</span></button>
+        </form>
+    </div>
+    <div class="container">
+        <h2>Filtrar Equipas</h2>
+        <div class="button-group">
+            <form th:action="@{/filtraequipasnome}" method="get">
+                <button type="submit"><span>Filtro</span><span>por Nome</span></button>
+            </form>
+            <form th:action="@{/filtraequipasnrjogadores}" method="get">
+                <button type="submit"><span>Filtro</span><span>por Nº de Jogadores</span></button>
+            </form>
+            <form th:action="@{/filtraequipasnrvitorias}" method="get">
+                <button type="submit"><span>Filtro</span><span>por Nº de Vitórias</span></button>
+            </form>
+            <form th:action="@{/filtraequipasnrempates}" method="get">
+                <button type="submit"><span>Filtro</span><span>por Nº de Empates</span></button>
+            </form>
+            <form th:action="@{/filtraequipasnrderrotas}" method="get">
+                <button type="submit"><span>Filtro</span><span>por Nº de Derrotas</span></button>
+            </form>
+            <form th:action="@{/filtraequipasnrconquistas}" method="get">
+                <button type="submit"><span>Filtro</span><span>por Nº de Conquistas</span></button>
+            </form>
+            <form th:action="@{/filtraequipasausenciaspos}" method="get">
+                <button type="submit"><span>Filtro</span><span>Ausência de Jogadores em Posição</span></button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

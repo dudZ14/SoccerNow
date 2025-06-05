@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Filtrar Campeonatos por Nome - SoccerNow</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body {
+            margin-top: 5vh;
+        }
+        h2, h3 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 500px;
+            max-width: 90%;
+            margin-bottom: 1rem;
+        }
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            width: 120px;
+            align-self: center;
+            padding: 0.5rem 1rem;
+        }
+        table {
+            margin: 0 auto;
+            width: 90%;
+            border-collapse: separate;
+            border-spacing: 0 1rem;
+            table-layout: fixed;
+        }
+        th, td {
+            vertical-align: middle;
+            padding: 0.75rem;
+            word-wrap: break-word;
+        }
+
+        p.no-results {
+            text-align: center;
+            color: gray;
+        }
+        .back-top-left {
+            position: absolute;
+            top: 2rem;     
+            left: 2rem;     
+        }
+
+        .back-top-left button {
+            width: auto !important;
+            height: 100px;
+            font-size: 1.1rem;
+            padding: 1.0rem 2.0rem;
+        }
+        .lista-equipas {
+            list-style: disc;
+            padding-left: 1.2em;
+            margin: 0;
+            text-align: left;
+        }
+
+        .lista-equipas li { 
+            display: list-item;
+            margin-left: 0;
+            padding-left: 0;
+            text-align: left;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="back-top-left">
+            <form th:action="@{/filtracampeonatos}" method="get">
+                <button type="submit" class="secondary"><span>Voltar</span></button>
+            </form>
+        </div>
+    <div class="container">
+
+        <h2>Filtrar Campeonatos por Nome</h2>
+        
+        <form th:action="@{/filtracampeonatosnome}" method="get">
+            <div class="input-group">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome"/>
+            </div>
+            <button type="submit">Filtrar</button>
+        </form>
+
+        <section th:if="${campeonatos != null}">
+        <h3 th:if="${!campeonatos.isEmpty()}">Resultados:</h3>
+        <table th:if="${!campeonatos.isEmpty()}">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Modalidade</th>
+                    <th>Nº Jogos</th>
+                    <th>Nº Jogos Realizados</th>
+                    <th>Pontuações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="c : ${campeonatos}">
+                    <td th:text="${c.nome}">Nome</td>
+                    <td th:text="${c.modalidade}">Modalidade</td>
+                    <td th:text="${c.numeroJogos}">0</td>
+                    <td th:text="${c.numeroJogosFeitos}">0</td>
+                    <td style="text-align: left;">
+                        <ul class="lista-equipas">
+                            <li th:each="e : ${c.equipasPontuacoes}"
+                                th:text="${e.nome + ': ' + e.pontuacao}">
+                                Equipa: Pontos
+                            </li>
+                        </ul>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <p th:if="${campeonatos.isEmpty()}" class="no-results">Nenhum resultado encontrado.</p>
+    </section>
+
+    </div>
+</body>
+</html>

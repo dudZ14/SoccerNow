@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Label?>
+
+<StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ul.fc.di.css.javafxexample.controller.AddArbitroController" prefHeight="400.0" prefWidth="350.0">
+  <children>
+    <VBox>
+      <children>
+        <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 5 10;">
+          <children>
+            <Label text="Voltar" onMouseClicked="#back" styleClass="menu-label"/>
+          </children>
+        </HBox>
+
+        <SplitPane dividerPositions="0.5" prefHeight="300.0" prefWidth="340.0">
+          <items>
+            <VBox spacing="10" alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-padding: 5 10;">
+              <children>
+                <Label text="Nome:" />
+                <TextField fx:id="fieldNome" />
+
+                <Label text="Email:" />
+                <TextField fx:id="fieldEmail" />
+
+                <Label text="Password:" />
+                <TextField fx:id="fieldPassword" />
+
+                <Label text="Anos de Experiência:" />
+                <TextField fx:id="fieldAnosExp" />
+
+                <CheckBox fx:id="checkCertificado" text="Tem Certificado" />
+              </children>
+            </VBox>
+
+            <VBox spacing="10" alignment="CENTER" prefWidth="140.0">
+              <children>
+                <Button fx:id="btnAdd" onAction="#addArbitro" text="Adicionar" />
+
+                <Label fx:id="labelNome" text="Nome:" styleClass="label-feedback" />
+                <Label fx:id="labelEmail" text="Email:" styleClass="label-feedback" />
+                <Label fx:id="labelAnosExp" text="Anos de Experiência:" styleClass="label-feedback" />
+                <Label fx:id="labelCertificado" text="Certificado:" styleClass="label-feedback" />
+              </children>
+            </VBox>
+          </items>
+        </SplitPane>
+      </children>
+    </VBox>
+  </children>
+</StackPane>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/23.0.1"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="pt.ul.fc.di.css.javafxexample.controller.RegistarResultadoController"
+           prefHeight="600.0" prefWidth="500.0">
+
+    <VBox spacing="10" alignment="TOP_CENTER">
+        <children>
+            <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-padding: 5 10;">
+                <children>
+                    <Label text="Voltar" onMouseClicked="#back" styleClass="menu-label" />
+                </children>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT">
+                <padding>
+                    <Insets left="20" />
+                </padding>
+                <children>
+                    <Label text="Golos" />
+                </children>
+            </HBox>
+
+            <VBox fx:id="golosBox" spacing="5">
+                <padding>
+                    <Insets left="20" />
+                </padding>
+            </VBox>
+
+            <HBox alignment="CENTER_LEFT">
+                <padding>
+                    <Insets left="20" />
+                </padding>
+                <children>
+                    <Button text="Adicionar Golo" onAction="#adicionarGolo" />
+                </children>
+            </HBox>
+
+            <Separator />
+
+            <HBox alignment="CENTER_LEFT">
+                <padding>
+                    <Insets left="20" />
+                </padding>
+                <children>
+                    <Label text="Cartões" />
+                </children>
+            </HBox>
+
+            <VBox fx:id="cartoesBox" spacing="5">
+                <padding>
+                    <Insets left="20" />
+                </padding>
+            </VBox>
+
+            <HBox alignment="CENTER_LEFT">
+                <padding>
+                    <Insets left="20" />
+                </padding>
+                <children>
+                    <Button text="Adicionar Cartão" onAction="#adicionarCartao" />
+                </children>
+            </HBox>
+
+            <Separator />
+
+            <Button text="Registar Resultado" onAction="#registarResultado" />
+        </children>
+    </VBox>
+
+</StackPane>

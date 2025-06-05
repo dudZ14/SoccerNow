@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Filtrar Jogadores por Nº de Jogos - SoccerNow</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+
+    <style>
+        body {
+            margin-top: 5vh;
+        }
+
+        h2, h3 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 500px;
+            max-width: 90%;
+            margin-bottom: 1rem;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 120px;
+            align-self: center;
+            padding: 0.5rem 1rem;
+        }
+
+        table {
+            margin: 0 auto;
+            width: 90%;
+            border-collapse: separate;
+            border-spacing: 0 1rem;
+            table-layout: fixed;
+        }
+
+        th, td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 0.75rem;
+            word-wrap: break-word;
+        }
+         p.no-results {
+            text-align: center;
+            color: gray;
+        }
+        .back-top-left {
+            position: absolute;
+            top: 2rem;      /* Distância do topo */
+            left: 2rem;     /* Distância da esquerda */
+        }
+
+        .back-top-left button {
+            width: auto !important;
+            height: 100px;
+            font-size: 1.1rem;
+            padding: 1.0rem 2.0rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-top-left">
+        <form th:action="@{/filtrajogadores}" method="get">
+            <button type="submit" class="secondary"><span>Voltar</span></button>
+        </form>
+    </div>
+    <div class="container">
+
+        <h2>Filtrar Jogadores por Nº de Jogos</h2>
+
+        <form th:action="@{/filtrajogadoresjogos}" method="get">
+            <div class="input-group">
+                <label for="numJogos">Número de Jogos:</label>
+                <input type="number" name="numJogos" id="numJogos" />
+            </div>
+            <button type="submit">Filtrar</button>
+        </form>
+
+        <section th:if="${jogadores != null and !jogadores.empty}">
+            <h3>Resultados:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Nº Golos</th>
+                        <th>Nº Cartões</th>
+                        <th>Nº Jogos</th>
+                        <th>Posição Preferida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${jogadores.empty}">
+                        <td colspan="6">Sem jogadores</td>
+                    </tr>
+                    <tr th:each="j : ${jogadores}">
+                        <td th:text="${j.nome}">...</td>
+                        <td th:text="${j.email}">...</td>
+                        <td th:text="${j.numeroGolos}">...</td>
+                        <td th:text="${j.numeroCartoes}">...</td>
+                        <td th:text="${j.numeroJogos}">...</td>
+                        <td th:text="${j.posicaoPreferida}">...</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </section>
+
+        <p th:if="${jogadores != null and jogadores.empty}" class="no-results">Nenhum resultado encontrado.</p>
+
+    </div>
+</body>
+</html>

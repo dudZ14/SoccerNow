@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="pt.ul.fc.di.css.javafxexample.controller.LoginController"
+           prefWidth="400" prefHeight="300">
+
+    <VBox spacing="20" alignment="TOP_CENTER">
+        <padding>
+            <Insets top="40" right="0" bottom="0" left="0"/>
+        </padding>
+
+        <Label text="SoccerNow" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+        <VBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="0" bottom="0" left="0"/>
+            </padding>
+
+            <Label text="Login" style="-fx-font-size: 18px;" />
+
+            <VBox spacing="5" maxWidth="250" alignment="TOP_LEFT">
+                <Label text="Email:" />
+                <TextField fx:id="emailField" promptText="test@gmail.com" maxWidth="300"/>
+            </VBox>
+
+            <VBox spacing="5" maxWidth="250" alignment="TOP_LEFT">
+                <Label text="Password:" />
+                <PasswordField fx:id="passwordField" promptText="testPassword" maxWidth="300"/>
+            </VBox>
+
+            <Label fx:id="errorLabel" textFill="red"/>
+
+            <Button text="Login" onAction="#handleLogin" prefWidth="100"/>
+        </VBox>
+    </VBox>
+</StackPane>

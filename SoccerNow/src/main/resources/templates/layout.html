@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout (content)">
+<head>
+    <title>SoccerNow</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        #container {
+            margin: auto;
+            max-width: 900px;
+            text-align: center;
+            padding-top: 5vh;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 4rem;
+        }
+
+        form {
+            flex: 1 1 200px;
+        }
+
+        form button {
+            width: 100%;
+        }
+
+        button span {
+            display: block;
+            line-height: 1.2;
+        }
+
+        h1, h2 {
+            margin-bottom: 1rem;
+        }
+
+        h2{
+            margin-top: 2.5rem;
+        }
+
+        .button-single {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .button-single form {
+            flex: 1 1 200px;
+            max-width: 200px;
+        }
+
+        .logout-top-right {
+            position: absolute;
+            top: 2rem;       /* Espaço extra do topo */
+            right: 2rem;     /* Espaço extra da direita */
+        }
+
+        .logout-top-right button {
+            font-size: 1.1rem;   /* Texto maior */
+            padding: 1.0rem 2.0rem;  /* Botão maior */
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="logout-top-right">
+        <form th:action="@{/logout}" method="get">
+            <button type="submit" class="secondary"><span>Logout</span></button>
+        </form>
+    </div>
+
+    <div class="container" id="container">
+        <h1>SoccerNow</h1>
+        <h2>Bem-vindo, <span th:text="${session.user}">Usuário</span></h2>
+
+        <div class="button-group">
+            <form th:action="@{/jogadores}" method="get">
+                <button type="submit"><span>Buscar</span><span>Jogadores</span></button>
+            </form>
+            <form th:action="@{/equipas}" method="get">
+                <button type="submit"><span>Buscar</span><span>Equipas</span></button>
+            </form>
+            <form th:action="@{/campeonatos}" method="get">
+                <button type="submit"><span>Buscar</span><span>Campeonatos</span></button>
+            </form>
+            <form th:action="@{/filtrajogadores}" method="get">
+                <button type="submit"><span>Filtrar</span><span>Jogadores</span></button>
+            </form>
+            <form th:action="@{/filtraarbitros}" method="get">
+                <button type="submit"><span>Filtrar</span><span>Árbitros</span></button>
+            </form>
+            <form th:action="@{/filtraequipas}" method="get">
+                <button type="submit"><span>Filtrar</span><span>Equipas</span></button>
+            </form>
+            <form th:action="@{/filtrajogos}" method="get">
+                <button type="submit"><span>Filtrar</span><span>Jogos</span></button>
+            </form>
+            <form th:action="@{/filtracampeonatos}" method="get">
+                <button type="submit"><span>Filtrar</span><span>Campeonatos</span></button>
+            </form>
+        </div>
+
+        <div class="button-single">
+            <form th:action="@{/mostrar_registar_resultado}" method="get">
+                <button type="submit"><span>Registar</span><span>Resultado</span></button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

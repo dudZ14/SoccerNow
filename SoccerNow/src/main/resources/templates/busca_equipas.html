@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Equipas - SoccerNow</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+
+    <style>
+        body {
+            margin-top: 5vh;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            margin: 0 auto;
+            width: 95%;
+            border-collapse: separate;
+            border-spacing: 0 1rem;
+            table-layout: fixed;
+        }
+
+        th, td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 0.75rem;
+            word-wrap: break-word;
+        }
+
+        .back-top-left {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+        }
+
+        .back-top-left button {
+            width: auto !important;
+            height: 100px;
+            font-size: 1.1rem;
+            padding: 1.0rem 2.0rem;
+        }
+        .historico-jogos {
+            font-size: 0.75rem;
+            max-height: 6rem;
+            overflow-y: auto;
+            padding: 0.25rem;
+        }
+
+        .historico-lista {
+            list-style-type: disc;
+            padding-left: 2.5rem; 
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+<div class="back-top-left">
+    <form th:action="@{/layout}" method="get">
+        <button type="submit" class="secondary"><span>Voltar</span></button>
+    </form>
+</div>
+
+<div class="container">
+    <h2>Equipas:</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Jogadores</th>
+            <th>Número de Vitórias</th>
+            <th>Histórico de Jogos</th>
+            <th>Conquistas</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${equipas.empty}">
+            <td colspan="5">Sem equipas</td>
+        </tr>
+        <tr th:each="e : ${equipas}">
+            <td th:text="${e.nome}">Nome da Equipa</td>
+
+            <td>
+                <span th:if="${#lists.isEmpty(e.jogadores)}">sem jogadores</span>
+                <span th:unless="${#lists.isEmpty(e.jogadores)}" th:each="j, iterStat : ${e.jogadores}">
+                    <span th:text="${j.nome}">Jogador</span>
+                    <span th:if="${!iterStat.last}">, </span>
+                </span>
+            </td>
+
+            <td th:text="${e.numeroVitorias}">0</td>
+
+            <td class="historico-jogos">
+                <span th:if="${#lists.isEmpty(e.historicoFormatado)}">sem histórico</span>
+                <ul th:unless="${#lists.isEmpty(e.historicoFormatado)}" class="historico-lista">
+                <li th:each="desc : ${e.historicoFormatado}" th:text="${desc}">Jogo</li>
+            </ul>
+
+            </td>
+
+
+            <td>
+                <span th:if="${#lists.isEmpty(e.conquistas)}">sem conquistas</span>
+                <span th:unless="${#lists.isEmpty(e.conquistas)}" th:each="c, iterStat : ${e.conquistas}">
+                    <span th:text="${c.nomeCampeonato} + ' - ' + ${c.posicao} + 'º lugar'">Conquista</span>
+                    <span th:if="${!iterStat.last}">, </span>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

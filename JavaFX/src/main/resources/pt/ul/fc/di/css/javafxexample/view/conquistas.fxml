@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pt.ul.fc.di.css.javafxexample.controller.ConquistasController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <children>
+
+        <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 0 5 0;">
+            <children>
+                <Button text="Voltar" onMouseClicked="#back"/>
+            </children>
+        </HBox>
+
+        <HBox alignment="CENTER" style="-fx-padding: 0 0 5 0; -fx-font-weight: bold;">
+            <children>
+                <Label fx:id="labelTitulo" text="Conquistas" styleClass="title-label" style="-fx-font-size: 22px;"/>
+            </children>
+        </HBox>
+
+        <TableView fx:id="tableConquistas" prefWidth="500">
+            <columns>
+                <TableColumn fx:id="colNome" text="Campeonato" prefWidth="90"/>
+                <TableColumn fx:id="colModalidade" text="Modalidade" prefWidth="70"/>
+                <TableColumn fx:id="colNumEquipas" text="Nº de Equipas" prefWidth="70"/>
+                <TableColumn fx:id="colPosicao" text="Posição" prefWidth="20"/>
+            </columns>
+        </TableView>
+
+        <HBox alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+            <children>
+                <Button text="OK" onMouseClicked="#back"/>
+            </children>
+        </HBox>
+
+    </children>
+</VBox>

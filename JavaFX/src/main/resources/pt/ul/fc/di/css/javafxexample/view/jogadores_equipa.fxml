@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pt.ul.fc.di.css.javafxexample.controller.JogadoresEquipaController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <children>
+
+        <!-- Botão Voltar alinhado à esquerda -->
+        <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 0 5 0;">
+            <children>
+                <Button text="Voltar" onMouseClicked="#back"/>
+            </children>
+        </HBox>
+
+        <!-- Título centralizado -->
+        <HBox alignment="CENTER" style="-fx-padding: 0 0 5 0; -fx-font-weight: bold;">
+            <children>
+                <Label fx:id="labelTitulo" text="Lista de Jogadores" styleClass="title-label" style="-fx-font-size: 22px;"/>
+            </children>
+        </HBox>
+
+        <!-- Tabela dos Jogadores -->
+        <TableView fx:id="tableJogadores" prefWidth="500">
+            <columns>
+                <TableColumn fx:id="colNome" text="Nome" prefWidth="150"/>
+                <TableColumn fx:id="colEmail" text="Email" prefWidth="150"/>
+                <TableColumn fx:id="colPosicao" text="Posição" prefWidth="70"/>
+                <TableColumn fx:id="colGolos" text="Golos" prefWidth="50"/>
+                <TableColumn fx:id="colCartoes" text="Cartões" prefWidth="50"/>
+            </columns>
+        </TableView>
+
+        <!-- Botão OK centralizado -->
+        <HBox alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+            <children>
+                <Button text="OK" onMouseClicked="#back"/>
+            </children>
+        </HBox>
+
+    </children>
+</VBox>

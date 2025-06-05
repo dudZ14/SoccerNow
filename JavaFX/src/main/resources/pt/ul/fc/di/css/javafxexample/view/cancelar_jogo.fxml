@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/23.0.1"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="pt.ul.fc.di.css.javafxexample.controller.CancelarJogoController"
+           style="-fx-padding: 20;">
+    
+    <VBox spacing="10" maxWidth="400" alignment="TOP_CENTER">
+
+        <!-- Botão Voltar no topo à esquerda -->
+        <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 0 10 0;" maxWidth="400">
+            <children>
+                <Button text="Voltar" onAction="#back"/>
+            </children>
+        </HBox>
+
+        <!-- Título centralizado: nome do campeonato -->
+        <Label fx:id="labelTitulo" text="Campeonato" 
+               style="-fx-font-size: 20px; -fx-font-weight: bold;" 
+               alignment="CENTER" maxWidth="400" />
+
+        <!-- Texto acima do ComboBox -->
+        <Label text="Jogo que deseja cancelar:" style="-fx-font-size: 14px;" maxWidth="400" />
+
+        <!-- Dropdown de Jogos -->
+        <ComboBox fx:id="comboJogos" prefWidth="300" maxWidth="400" />
+
+        <!-- Botão Cancelar no centro embaixo -->
+        <HBox alignment="CENTER" style="-fx-padding: 10 0 0 0;" maxWidth="400">
+            <children>
+                <Button text="Cancelar Jogo" onAction="#cancelarJogoSelecionado"/>
+            </children>
+        </HBox>
+    </VBox>
+    
+</StackPane>

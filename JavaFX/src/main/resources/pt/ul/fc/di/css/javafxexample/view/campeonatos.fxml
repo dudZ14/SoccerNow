@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?> 
+<?import javafx.scene.control.Label?>
+
+<VBox fx:controller="pt.ul.fc.di.css.javafxexample.controller.InitController" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 5 10;">
+      <children>
+        <Label text="Menu" onMouseClicked="#menu" styleClass="menu-label"/>
+        <Label text="Árbitros" onMouseClicked="#arbitros" styleClass="menu-label"/>
+        <Label text="Jogadores" onMouseClicked="#jogadores" styleClass="menu-label"/>
+        <Label text="Equipas" onMouseClicked="#equipas" styleClass="menu-label"/>
+        <Label text="Jogos" onMouseClicked="#jogos" styleClass="menu-label"/>
+        <Label text="Campeonatos" onMouseClicked="#campeonatos" styleClass="menu-label"/>
+        <Label text="Sair" onMouseClicked="#quit" styleClass="menu-label"/>
+      </children>
+    </HBox>
+
+    <!-- Botões alinhados horizontalmente -->
+    <HBox spacing="20.0" alignment="CENTER" VBox.vgrow="ALWAYS">
+        <children>
+            <Button fx:id="createButton" onMouseClicked="#createCampeonato" prefHeight="51.0" prefWidth="147.0" text="Criar Campeonato" />
+            <Button fx:id="listButton" onMouseClicked="#listCampeonatos" prefHeight="51.0" prefWidth="147.0" text="Lista de Campeonatos" />
+        </children>
+    </HBox>
+    
+  </children>
+</VBox>

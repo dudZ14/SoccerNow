@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/23.0.1"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="pt.ul.fc.di.css.javafxexample.controller.ListJogadorController"
+           prefHeight="400.0" prefWidth="600.0">
+  
+  <children>
+    <VBox spacing="10" alignment="TOP_CENTER">
+      <children>
+        <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 5 10;">
+          <children>
+            <Label text="Voltar" onMouseClicked="#back" styleClass="menu-label"/>
+          </children>
+        </HBox>
+
+        <SplitPane dividerPositions="0.6" prefHeight="350.0" prefWidth="580.0">
+          <items>
+            <ListView fx:id="listJogadores" prefWidth="250.0" />
+
+            <SplitPane orientation="VERTICAL" prefWidth="330.0">
+              <items>
+                <VBox spacing="20.0" alignment="CENTER_LEFT" style="-fx-padding: 0 0 0 10;">
+                  <children>
+                    <HBox fx:id="boxNome" spacing="5">
+                      <Label text="Nome:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelNome" />
+                    </HBox>
+                    <HBox fx:id="boxEmail" spacing="5">
+                      <Label text="Email:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelEmail"/>
+                    </HBox>
+                    <HBox fx:id="boxPosicao" spacing="5">
+                      <Label text="Posição:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelPosicao" />
+                    </HBox>
+                    <HBox fx:id="boxNumJogos" spacing="5">
+                      <Label text="Nº de jogos:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelNumJogos" />
+                    </HBox>
+                    <HBox fx:id="boxNumGolos" spacing="5">
+                      <Label text="Nº de golos:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelNumGolos" />
+                    </HBox>
+                    <HBox fx:id="boxNumCartoes" spacing="5">
+                      <Label text="Nº de cartões:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelNumCartoes" />
+                    </HBox>
+                  </children>
+                </VBox>
+
+                <ToolBar>
+                  <items>
+                    <Button fx:id="btnRemove" text="Remover" onAction="#removerJogador"/>
+                    <Button fx:id="btnEdit" text="Editar" onAction="#editarJogador"/>
+                  </items>
+                </ToolBar>
+              </items>
+            </SplitPane>
+          </items>
+        </SplitPane>
+      </children>
+    </VBox>
+  </children>
+</StackPane>

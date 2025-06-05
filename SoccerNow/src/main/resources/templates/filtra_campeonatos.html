@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Filtrar Campeonatos - SoccerNow</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 2rem;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 10.5rem;
+            text-align: center;
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        form {
+            flex: 0 0 180px;
+        }
+        form button {
+            width: 100%;
+            height: 120px;
+            text-align: center;
+        }
+        button span {
+            display: block;
+            line-height: 1.2;
+        }
+        .back-top-left {
+            position: absolute;
+            top: 2rem;      /* Distância do topo */
+            left: 2rem;     /* Distância da esquerda */
+        }
+
+        .back-top-left button {
+            width: auto !important;
+            height: 100px;
+            font-size: 1.1rem;
+            padding: 1.0rem 2.0rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-top-left">
+        <form th:action="@{/layout}" method="get">
+            <button type="submit" class="secondary"><span>Voltar</span></button>
+        </form>
+    </div>
+    <div class="container">
+        <h2>Filtrar Campeonatos</h2>
+        <div class="button-group">
+            <form th:action="@{/filtracampeonatosnome}" method="get">
+                <button type="submit"><span>Filtro</span><span>por Nome</span></button>
+            </form>
+            <form th:action="@{/filtracampeonatosequipa}" method="get">
+                <button type="submit"><span>Filtro</span><span>por Equipa Participante</span></button>
+            </form>
+            <form th:action="@{/filtracampeonatosjrealizados}" method="get">
+                <button type="submit"><span>Filtro</span><span>por Nº de Jogos Realizados</span></button>
+            </form>
+            <form th:action="@{/filtracampeonatosjarealizar}" method="get">
+                <button type="submit"><span>Filtro</span><span>por Nº de Jogos a Realizar</span></button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

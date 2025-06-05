@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Label?>
+
+<StackPane xmlns="http://javafx.com/javafx/23.0.1"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="pt.ul.fc.di.css.javafxexample.controller.ListEquipaController">
+    <children>
+      <VBox fx:id="mainVBox" prefHeight="400.0" prefWidth="600.0">
+        <children>
+      <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 5 10;">
+        <children>
+          <Label text="Voltar" onMouseClicked="#back" styleClass="menu-label"/>
+        </children>
+      </HBox>
+      <SplitPane dividerPositions="0.36">
+        <items>
+          <ListView fx:id="listEquipas" prefWidth="250.0" />
+          
+          <SplitPane orientation="VERTICAL">
+            <items>
+              <VBox spacing="10" alignment="TOP_LEFT" style="-fx-padding: 60 0 0 10;">
+                <children>
+                  <HBox fx:id="boxNome" spacing="5">
+                    <Label text="Nome:" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="labelNome"/>
+                  </HBox>
+                  <HBox fx:id="boxNumJogadores" spacing="5">
+                    <Label text="Nº Jogadores:" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="labelNumJogadores"/>
+                  </HBox>
+                  <HBox fx:id="boxNumJogos" spacing="5">
+                    <Label text="Nº Jogos:" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="labelNumJogos"/>
+                  </HBox>
+                  <HBox fx:id="boxNumVitorias" spacing="5">
+                    <Label text="Nº Vitórias:" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="labelNumVitorias"/>
+                  </HBox>
+                  <HBox fx:id="boxNumConquistas" spacing="5">
+                    <Label text="Conquistas:" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="labelNumConquistas"/>
+                  </HBox>
+                </children>
+              </VBox>
+
+              <ToolBar>
+                <items>
+                  <Button fx:id="btnRemove" text="Remover" onAction="#removerEquipa"/>
+                  <Button fx:id="btnEdit" text="Editar" onAction="#editarEquipa"/>
+                  <Button fx:id="btnJogadores" text="Jogadores" onAction="#mostrarJogadores"/>
+                  <Button fx:id="btnHistorico" text="Histórico" onAction="#mostrarHistorico"/>
+                  <Button fx:id="btnConquistas" text="Conquistas" onAction="#mostrarConquistas"/>
+                </items>
+              </ToolBar>
+            </items>
+          </SplitPane>
+        </items>
+    </SplitPane>
+
+    </children>
+    </VBox>
+  </children>
+</StackPane>
+
+

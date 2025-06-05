@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/23.0.1"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="pt.ul.fc.di.css.javafxexample.controller.ListJogoController"
+           prefHeight="400.0" prefWidth="600.0">
+
+  <children>
+    <VBox spacing="10" alignment="TOP_CENTER">
+      <children>
+        <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 5 10;">
+          <children>
+            <Label text="Voltar" onMouseClicked="#back" styleClass="menu-label"/>
+          </children>
+        </HBox>
+
+        <SplitPane dividerPositions="0.45" prefHeight="350.0" prefWidth="580.0">
+          <items>
+            <ListView fx:id="listJogos" prefWidth="250.0"/>
+
+            <!-- ADICIONADO: SplitPane vertical para imitar estrutura de jogadores -->
+            <SplitPane orientation="VERTICAL" prefWidth="330.0">
+              <items>
+                <VBox spacing="10" alignment="TOP_LEFT" style="-fx-padding: 30 0 0 10;" fx:id="boxDetalhes">
+                  <children>
+                    <HBox spacing="5">
+                      <Label text="Local:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelLocal"/>
+                    </HBox>
+                    <HBox spacing="5">
+                      <Label text="Dia:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelDia"/>
+                    </HBox>
+                    <HBox spacing="5">
+                      <Label text="Hora Início:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelHoraInicio"/>
+                    </HBox>
+                    <HBox spacing="5">
+                      <Label text="Hora Fim:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelHoraFim"/>
+                    </HBox>
+                    <HBox spacing="5">
+                      <Label text="Equipa Casa:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelEquipaCasa"/>
+                    </HBox>
+                    <HBox spacing="5">
+                      <Label text="Equipa Visitante:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelEquipaVisitante"/>
+                    </HBox>
+                    <HBox spacing="5">
+                      <Label text="Estado:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelEstado"/>
+                    </HBox>
+                   <HBox spacing="5" fx:id="boxResultado">
+                      <Label text="Resultado:" style="-fx-font-weight: bold;"/>
+                      <Label fx:id="labelResultado"/>
+                  </HBox>
+
+                </children>
+                </VBox>
+
+                <!-- ToolBar igual ao dos jogadores -->
+                <ToolBar>
+                  <items>
+                    <Button text="Registar Resultado" onAction="#registarJogo"/>
+                    <Button text="Jogadores" onAction="#mostrarJogadores"/>
+                    <Button text="Árbitros" onAction="#mostrarArbitros"/>
+                  </items>
+                </ToolBar>
+              </items>
+            </SplitPane>
+          </items>
+        </SplitPane>
+      </children>
+    </VBox>
+  </children>
+</StackPane>

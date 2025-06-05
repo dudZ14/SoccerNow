@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Filtrar por Jogos do Turno da Tarde - SoccerNow</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body { margin-top: 5vh; }
+        h2, h3 { text-align: center; }
+        table { margin: auto; width: 80%; border-spacing: 0.5rem; }
+        th, td { text-align: center; padding: 0.5rem; }
+        p.no-results {
+            text-align: center;
+            color: gray;
+        }
+        .back-top-left {
+            position: absolute;
+            top: 2rem;      /* Distância do topo */
+            left: 2rem;     /* Distância da esquerda */
+        }
+
+        .back-top-left button {
+            width: auto !important;
+            height: 100px;
+            font-size: 1.1rem;
+            padding: 1.0rem 2.0rem;
+        }
+        .lista-jogadores {
+            font-size: 0.65rem;       /* diminui mais a fonte */
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin: 0;
+            text-align: center;
+            line-height: 1.5;         /* aumenta o espaçamento entre linhas */
+        }
+
+        .lista-jogadores li {
+            margin: 0.2rem 0;         /* dá um espacinho vertical em cima e em baixo */
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="back-top-left">
+        <form th:action="@{/filtrajogos}" method="get">
+            <button type="submit" class="secondary"><span>Voltar</span></button>
+        </form>
+    </div>
+    <div class="container">
+        <h2>Filtrar por Jogos do Turno da Tarde</h2>
+
+        <section th:if="${jogos != null}">
+        <h3 th:if="${!jogos.isEmpty()}">Resultados:</h3>
+         <table th:if="${!jogos.isEmpty()}">
+           <thead>
+                <tr>
+                    <th>Local</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Equipa Casa</th>
+                    <th>Equipa Visitante</th>
+                    <th>Árbitro Principal</th>
+                    <th>Árbitros Assistentes</th>
+                    <th>Jogadores Participantes</th> 
+                    <th>Estado</th>    
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="j : ${jogos}">
+                    <td th:text="${j.local}">Local</td>
+                    <td th:text="${#temporals.format(j.dataInicio, 'dd/MM/yyyy')}">01/01/2024</td>
+                    <td th:text="${#temporals.format(j.dataInicio, 'HH:mm')} + ' até ' + ${#temporals.format(j.dataFim, 'HH:mm')}">12:00 - 14:00</td>
+                    <td th:text="${j.equipaCasa}">Casa</td>
+                    <td th:text="${j.equipaVisitante}">Visitante</td>
+                    <td th:text="${j.arbitroPrincipal}">João Árbitro</td>
+                    <td th:text="${j.arbitrosAssistentes}">Carlos, Luís</td>
+                    <td>
+                        <ul class="lista-jogadores" th:if="${j.jogadores != null}">
+                            <li th:each="jogador : ${j.jogadores}" th:text="${jogador}">Jogador (Posição)</li>
+                        </ul>
+                        <span th:if="${j.jogadores == null or #lists.isEmpty(j.jogadores)}">sem jogadores</span>
+                    </td>
+                    <td th:text="${j.estado}">REALIZADO</td>
+                </tr>
+                </tbody>
+
+        </table>
+        <p th:if="${jogos.isEmpty()}" class="no-results" style="text-align: center; color: gray;">
+            Nenhum resultado encontrado.
+        </p>
+    </section>
+
+    </div>
+</body>
+</html>

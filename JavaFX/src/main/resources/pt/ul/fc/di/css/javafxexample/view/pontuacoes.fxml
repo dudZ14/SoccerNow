@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pt.ul.fc.di.css.javafxexample.controller.PontuacoesController"
+      spacing="5" style="-fx-padding: 10;"> 
+
+    <children>
+        <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 0 5 0;">
+            <children>
+                <Button text="Voltar" onAction="#back"/>
+            </children>
+        </HBox>
+
+        <HBox alignment="CENTER" style="-fx-padding: 0 0 5 0;"> 
+            <children>
+                <Label fx:id="labelCampeonato" text="Nome do Campeonato" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            </children>
+        </HBox>
+
+        <TableView fx:id="tablePontuacoes">
+            <columns>
+                <TableColumn fx:id="colEquipe" text="Equipa" prefWidth="200"/>
+                <TableColumn fx:id="colPontos" text="Pontos" prefWidth="100"/>
+            </columns>
+        </TableView>
+
+        <HBox alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+            <children>
+                <Button text="OK" onAction="#back"/>
+            </children>
+        </HBox>
+    </children>
+</VBox>
